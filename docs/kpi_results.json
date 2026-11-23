@@ -1,0 +1,19 @@
+{
+  "definition": "Finished states COMPLETE/CLOSED; observed net sales and recorded line profit; late = actual days > scheduled days on eligible orders",
+  "net_sales": 14476738.58,
+  "profit": 1779716.84,
+  "profit_margin_pct": 12.29,
+  "orders": 28965,
+  "customers": 14543,
+  "average_order_value": 499.8,
+  "units": 168082,
+  "loss_making_lines": 14683,
+  "repeat_customers": 7488,
+  "repeat_customer_pct": 51.49,
+  "repeat_order_sales": 7739973.09,
+  "logistics_orders": 28965,
+  "late_orders": 16633,
+  "late_order_pct": 57.42,
+  "late_sales_exposure": 8255939.77,
+  "snapshot_date": "2018-02-01"
+}

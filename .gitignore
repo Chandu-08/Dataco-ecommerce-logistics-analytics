@@ -1,0 +1,8 @@
+data/raw/*.csv
+data/processed/fact_order_items.csv
+data/processed/fact_orders.csv
+data/processed/customer_rfm.csv
+__pycache__/
+*.pyc
+.env
+*.pbix

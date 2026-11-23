@@ -1,0 +1,18 @@
+// Model: fact_orders and fact_order_items each relate many-to-one to DimDate on
+// date-only order date, DimMarket, DimRegion; dim_customers relates to both on customer_id.
+// Category filters only fact_order_items; an order may belong to multiple categories.
+Net Sales = CALCULATE(SUM(fact_order_items[net_sales]), fact_order_items[financial_eligible] = TRUE())
+Recorded Profit = CALCULATE(SUM(fact_order_items[profit]), fact_order_items[financial_eligible] = TRUE())
+Profit Margin % = DIVIDE([Recorded Profit], [Net Sales])
+Orders = CALCULATE(DISTINCTCOUNT(fact_orders[order_id]), fact_orders[financial_eligible] = TRUE())
+Customers = CALCULATE(DISTINCTCOUNT(fact_orders[customer_id]), fact_orders[financial_eligible] = TRUE())
+Average Order Value = DIVIDE([Net Sales], [Orders])
+Eligible Deliveries = CALCULATE(DISTINCTCOUNT(fact_orders[order_id]), fact_orders[logistics_eligible] = TRUE())
+Late Deliveries = CALCULATE(DISTINCTCOUNT(fact_orders[order_id]), fact_orders[logistics_eligible] = TRUE(), fact_orders[late] = TRUE())
+Late Delivery % = DIVIDE([Late Deliveries], [Eligible Deliveries])
+Late Sales Exposure = CALCULATE(SUM(fact_orders[net_sales]), fact_orders[logistics_eligible] = TRUE(), fact_orders[late] = TRUE())
+Repeat Customers = CALCULATE(DISTINCTCOUNT(customer_rfm[customer_id]), customer_rfm[frequency] > 1)
+Repeat Customer % = DIVIDE([Repeat Customers], DISTINCTCOUNT(customer_rfm[customer_id]))
+// Optional log events: load analytics.fact_product_views. Do not interpret as unique visitors or conversions.
+Product Page Events = SUM(fact_product_views[page_events])
+// Date table: DimDate = CALENDAR(DATE(2015,1,1), DATE(2018,1,31)); mark as date table.

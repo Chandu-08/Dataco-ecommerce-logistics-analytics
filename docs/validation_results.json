@@ -1,0 +1,33 @@
+{
+  "source_rows": 180519,
+  "source_columns": 53,
+  "distinct_order_items": 180519,
+  "distinct_orders": 65752,
+  "distinct_customers": 20652,
+  "duplicate_item_ids": 0,
+  "customer_id_mismatches": 0,
+  "missing_order_dates": 0,
+  "invalid_quantities": 0,
+  "financial_identity_failures": 0,
+  "profit_duplicate_failures": 0,
+  "gross_sales_identity_failures": 0,
+  "order_field_conflicts": {
+    "customer_id": 0,
+    "order_date": 0,
+    "shipping_date": 0,
+    "order_status": 0,
+    "delivery_status": 0,
+    "actual_days": 0,
+    "scheduled_days": 0,
+    "shipping_mode": 0,
+    "market": 0,
+    "region": 0,
+    "country": 0
+  },
+  "finished_item_rows": 79107,
+  "finished_orders": 28965,
+  "logistics_eligible_orders": 28965,
+  "source_net_sales": 33054402.38,
+  "finished_net_sales": 14476738.58,
+  "finished_profit": 1779716.84
+}
